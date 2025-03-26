@@ -1,0 +1,20 @@
+train:
+  epochs: 26
+  imgsz: 512
+  batch: 16
+  save_period: -1
+  workers: 2
+
+eval:
+  batch: 16
+  imgsz: 512
+
+register:
+  name: DeformityDetector
+  run_id: latest # choose 'latest' to register the model with the latest run id
+
+inference:
+  # model_name_from_register: same_register_name # choose 'same_register_name' to consume the model with the same register name
+  # version: latest # choose 'latest' to consume the model with the latest version
+  exp_name: from_cfg_train
+  run_id: latest
