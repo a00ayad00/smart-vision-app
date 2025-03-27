@@ -3,8 +3,10 @@ from src.utils import read_yaml, mkdirs
 from os.path import join, exists, dirname
 from ultralytics import YOLO
 from dotenv import load_dotenv
+import dagshub
 
 load_dotenv()
+dagshub.init(repo_owner='3bdullah3yad', repo_name='SmartVision', mlflow=True)
 
 model_path = join('app_temp', 'model', 'best.pt')
 
@@ -25,6 +27,6 @@ def fetch_model():
             df = mlflow.search_runs([experiment_id], order_by=["end_time DESC"])
             run_id = df['run_id'][0]        
 
-        mlflow.artifacts.download_artifacts(f'runs:/{run_id}/model/data/best.pt', dst_path = dirname(model_path))
+        mlflow.artifacts.download_artifacts(f'runs:/{run_id}/weights/best.pt', dst_path = dirname(model_path))
 
     return YOLO(model_path)

@@ -1,0 +1,9 @@
+.env
+*egg*
+build
+log*
+src/__pycache__
+mlruns
+*.ipynb
+*temp
+*.mp4
