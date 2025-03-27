@@ -3,6 +3,7 @@
 build
 log*
 src/__pycache__
+__pycache__
 mlruns
 *.ipynb
 *temp
