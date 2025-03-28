@@ -1,4 +1,4 @@
-opencv-python==4.5.3.56
+opencv-python-headless==4.5.3.56
 ultralytics<=8.3.78
 # opencv-python-headless==4.5.3.56
 streamlit==1.42.2
