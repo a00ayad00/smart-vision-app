@@ -1,18 +1,10 @@
-import subprocess
-import sys
-subprocess.run(["apt-get install -y libgl1-mesa-dev"])
-subprocess.run(["apt-get install -y libglib2.0-0"])
-subprocess.run([f"{sys.executable}", "main.py > output.log 2>&1 &"])
-
 import streamlit as st
-# from PIL import Image
+from PIL import Image
 import os
 import moviepy.editor as moviepy
 from src.model import fetch_model
 from src.utils import mkdirs
-import requests
-
-
+# import requests
 
 
 model_results_path = os.path.join('app_temp', 'results')
@@ -34,14 +26,15 @@ def download_button_for_vid(path, key):
     data.close()
 
 @st.fragment
-def download_button_for_img(data, name):
+def download_button_for_img(path, name):
+    data = open(path, "rb")
     st.download_button(
         label = "📥 تنزيل الصورة",
         data = data,
         file_name = name,
         mime = "image/jpg"
     )
-
+    data.close()
 
 def main():
     # Arabic RTL support and custom styling
@@ -187,24 +180,24 @@ def main():
 
                 # Run object detection
                 with st.spinner("🔍 جاري تحليل الصورة..."):
-                    # img = Image.open(img)
-                    # result = model(img)[0]
-                    inp_path = os.path.join(model_input_path, f"img.{img.name.split('.')[-1]}")
-                    with open(inp_path, "wb") as f:
-                        f.write(img.getvalue())
-                    with open(inp_path, 'rb') as f:
-                        files = {'file': f.read()}
+                    img = Image.open(img)
+                    result = model(img)[0]
+                    # inp_path = os.path.join(model_input_path, f"img.{img.name.split('.')[-1]}")
+                    # with open(inp_path, "wb") as f:
+                    #     f.write(img.getvalue())
+                    # with open(inp_path, 'rb') as f:
+                    #     files = {'file': f.read()}
                     # result = model(inp_path)[0]
-                    response = requests.post(
-                        url = 'http://127.0.0.1:5000/process/image', 
-                        files = files,
-                    )
+                    # response = requests.post(
+                    #     url = 'http://127.0.0.1:5000/process/image', 
+                    #     files = files,
+                    # )
 
                 # Process results
                 results_file_path = os.path.join(model_results_path, f"result_{i}.jpg")
-                # result.save(filename = file_path)
-                with open(results_file_path, 'wb') as im:
-                    im.write(response.content)
+                result.save(filename = results_file_path)
+                # with open(results_file_path, 'wb') as im:
+                #     im.write(response.content)
 
                 with col2:
                     st.markdown("### النتيجة المعالجة")
@@ -213,13 +206,7 @@ def main():
                     st.success("✅ اكتمل التحليل!")
 
                     # Download button
-                    with open(results_file_path, "rb") as file:
-                        st.download_button(
-                            label = "📥 تنزيل الصورة",
-                            data = file,
-                            file_name = os.path.basename(results_file_path),
-                            mime = "image/jpg"
-                        )
+                    download_button_for_img(results_file_path, os.path.basename(results_file_path))
 
         elif file_type == 'فيديو':
             
@@ -240,16 +227,18 @@ def main():
                         f.write(vid.getvalue())
                     
                     with st.spinner("🔍 جاري معالجة الفيديو...", show_time=True):
-                        with open(uploaded_videos_path, 'rb') as f:
-                            files = {'file': f.read()}
-                        response = requests.post(
-                            url = 'http://127.0.0.1:5000/process/video', 
-                            files = files
-                        )
+                        # with open(uploaded_videos_path, 'rb') as f:
+                        #     files = {'file': f.read()}
+                        # response = requests.post(
+                        #     url = 'http://127.0.0.1:5000/process/video', 
+                        #     files = files
+                        # )
 
-                        file_path = os.path.join(model_results_path, 'vid.mp4')
-                        with open(file_path, 'wb') as f:
-                            f.write(response.content)
+                        model.predict(uploaded_videos_path, project='app_temp', name='results', verbose=False)
+
+                        file_path = os.path.join(model_results_path, 'vid.avi')
+                        # with open(file_path, 'wb') as f:
+                        #     f.write(response.content)
 
 
                     st.success("✅ تمت معالجة الفيديو بنجاح!")

@@ -9,3 +9,5 @@ mlruns
 *temp
 *.mp4
 .devcontainer
+app2.py
+main.py
