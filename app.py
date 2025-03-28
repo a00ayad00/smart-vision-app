@@ -6,6 +6,11 @@ from src.model import fetch_model
 from src.utils import mkdirs
 import requests
 
+import subprocess
+import sys
+subprocess.run([f"{sys.executable}", "main.py"])
+
+
 model_results_path = os.path.join('app_temp', 'results')
 model_input_path = os.path.join('app_temp', 'inputs')
 mkdirs([model_results_path, model_input_path])
