@@ -11,10 +11,10 @@ setuptools==75.8.2
 fastapi==0.115.11
 uvicorn==0.34.0
 python-multipart==0.0.20
-python-dotenv==1.1.0
+python-dotenv
 opencv-python-headless==4.5.3.56
-setuptools==78.1.0
-numpy==2.2.4
+setuptools
+numpy
 # dvc-s3==3.2.0
 # uv==0.6.6
 .
