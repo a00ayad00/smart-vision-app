@@ -8,3 +8,4 @@ mlruns
 *.ipynb
 *temp
 *.mp4
+.devcontainer
