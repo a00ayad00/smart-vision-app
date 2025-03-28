@@ -11,7 +11,7 @@ uvicorn==0.34.0
 python-multipart==0.0.20
 python-dotenv
 # opencv-python-headless==4.5.3.56
-opencv-python==4.6.0
+opencv-python>=4.6.0
 setuptools
 numpy==1.25.2
 .
