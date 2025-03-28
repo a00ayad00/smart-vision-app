@@ -218,8 +218,12 @@ def main():
 
             if uploaded_videos:
                 for i, vid in enumerate(uploaded_videos, 1):
-                    st.markdown("### الفيديو الأصلي")
-                    st.video(vid)
+
+                    col1, col2 = st.columns(2)
+
+                    with col1:
+                        st.markdown("### الفيديو الأصلي")
+                        st.video(vid)
 
                     # put the uploaded vid in the model input path
                     uploaded_videos_path = os.path.join(model_input_path, 'vid.mp4')
@@ -234,7 +238,9 @@ def main():
                         #     files = files
                         # )
 
-                        model.predict(uploaded_videos_path, project='app_temp', name='results', verbose=False)
+                        model.predict(
+                            uploaded_videos_path, project='app_temp', name='results', verbose=True, save=True, exist_ok=True
+                        )
 
                         file_path = os.path.join(model_results_path, 'vid.avi')
                         # with open(file_path, 'wb') as f:
@@ -247,9 +253,10 @@ def main():
                         processed_vid_path = os.path.join(model_results_path, f'vid_{i}.mp4')
                         clip = moviepy.VideoFileClip(file_path)
                         clip.write_videofile(processed_vid_path)
-                    
-                    st.markdown("### النتيجة المعالجة")
-                    st.video(processed_vid_path)
+
+                    with col2:
+                        st.markdown("### النتيجة المعالجة")
+                        st.video(processed_vid_path)
 
                     download_button_for_vid(processed_vid_path, key = i)
 

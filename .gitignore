@@ -1,7 +1,7 @@
 .env
 *egg*
 build
-log*
+*log*
 src/__pycache__
 __pycache__
 mlruns
