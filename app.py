@@ -1,3 +1,9 @@
+import subprocess
+import sys
+subprocess.run(["apt-get install -y libgl1-mesa-dev"])
+subprocess.run(["apt-get install -y libglib2.0-0"])
+subprocess.run([f"{sys.executable}", "main.py > output.log 2>&1 &"])
+
 import streamlit as st
 # from PIL import Image
 import os
@@ -6,9 +12,7 @@ from src.model import fetch_model
 from src.utils import mkdirs
 import requests
 
-import subprocess
-import sys
-subprocess.run([f"{sys.executable}", "main.py > output.log 2>&1 &"])
+
 
 
 model_results_path = os.path.join('app_temp', 'results')
