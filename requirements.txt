@@ -1,7 +1,7 @@
 # opencv-python==4.5.5.64
+opencv-python==4.6.0.66
 ultralytics<=8.3.78
 # opencv-python-headless==4.5.3.56
-opencv-python-headless==4.5.5.64
 streamlit==1.42.2
 moviepy==1.0.3
 decorator==4.0.2
