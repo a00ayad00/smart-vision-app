@@ -6,9 +6,9 @@ from src.model import fetch_model
 from src.utils import mkdirs
 import requests
 
-# import subprocess
-# import sys
-# subprocess.run([f"{sys.executable}", "main.py > output.log 2>&1 &"])
+import subprocess
+import sys
+subprocess.run([f"{sys.executable}", "main.py > output.log 2>&1 &"])
 
 
 model_results_path = os.path.join('app_temp', 'results')
