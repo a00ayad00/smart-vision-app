@@ -1,6 +1,8 @@
-opencv-python-headless
+opencv-python-headless==4.5.3.56
 ultralytics
-# opencv-python-headless==4.5.3.56
+libgl1-mesa-glx
+libgl1
+libglib
 streamlit==1.42.2
 moviepy==1.0.3
 decorator==4.0.2
