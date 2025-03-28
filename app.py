@@ -1,6 +1,6 @@
 import streamlit as st
 # from PIL import Image
-import shutil, os
+import os
 import moviepy.editor as moviepy
 from src.model import fetch_model
 from src.utils import mkdirs
@@ -8,7 +8,7 @@ import requests
 
 import subprocess
 import sys
-subprocess.run([f"{sys.executable}", "main.py"])
+subprocess.run([f"{sys.executable}", "main.py > output.log 2>&1 &"])
 
 
 model_results_path = os.path.join('app_temp', 'results')
