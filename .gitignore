@@ -8,6 +8,6 @@ mlruns
 *.ipynb
 *temp
 *.mp4
-.devcontainer
-app2.py
+# .devcontainer
 main.py
+app2.py
