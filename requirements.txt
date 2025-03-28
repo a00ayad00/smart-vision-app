@@ -13,6 +13,7 @@ uvicorn==0.34.0
 python-multipart==0.0.20
 python-dotenv==1.1.0
 opencv-python-headless==4.5.3.56
+setuptools==78.1.0
 # dvc-s3==3.2.0
 # uv==0.6.6
 .
