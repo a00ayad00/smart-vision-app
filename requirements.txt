@@ -1,6 +1,5 @@
 opencv-python-headless==4.5.3.56
 ultralytics
-libgl1
 libglib
 streamlit==1.42.2
 moviepy==1.0.3
