@@ -1,5 +1,6 @@
-ultralytics
-opencv-python-headless
+ultralytics==8.3.98
+opencv-python-headless==4.8.1.78
+opencv-contrib-python==4.8.1.78
 # opencv-python==4.5.5.64
 streamlit==1.42.2
 moviepy==1.0.3
