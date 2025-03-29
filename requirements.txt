@@ -12,6 +12,6 @@ uvicorn==0.34.0
 python-multipart==0.0.20
 python-dotenv
 setuptools
-# numpy==1.25.2 >=1.23.0
-numpy
+# numpy==1.25.2 
+numpy>=1.23.0
 .
