@@ -2,8 +2,8 @@ import streamlit as st
 from PIL import Image
 import os
 import moviepy.editor as moviepy
-from src.model import fetch_model
-from src.utils import mkdirs
+from model import fetch_model
+from utils import mkdirs
 # import requests
 
 

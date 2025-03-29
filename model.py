@@ -1,5 +1,5 @@
 import mlflow
-from src.utils import read_yaml, mkdirs
+from utils import read_yaml, mkdirs
 from os.path import join, exists, dirname
 from ultralytics import YOLO
 from dotenv import load_dotenv
