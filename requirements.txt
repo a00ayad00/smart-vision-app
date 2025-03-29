@@ -1,5 +1,6 @@
 ultralytics==8.3.98
 opencv-python-headless==4.5.3.56
+opencv-contrib-python==4.5.5.62
 streamlit==1.42.2
 moviepy==1.0.3
 decorator==4.0.2
