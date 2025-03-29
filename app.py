@@ -3,13 +3,14 @@ from PIL import Image
 import os
 import moviepy.editor as moviepy
 from model import fetch_model
-from utils import mkdirs
+from helper import mkdirs
 # import requests
 
 
 model_results_path = os.path.join('app_temp', 'results')
 model_input_path = os.path.join('app_temp', 'inputs')
 mkdirs([model_results_path, model_input_path])
+
 
 model = fetch_model()
 
