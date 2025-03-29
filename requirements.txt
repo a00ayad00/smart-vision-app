@@ -1,5 +1,5 @@
 ultralytics
-opencv-python-headless==4.5.3.56
+# opencv-python-headless==4.5.3.56
 opencv-python==4.5.5.64
 moviepy==1.0.3
 # decorator==4.0.2
@@ -10,4 +10,4 @@ dagshub==0.5.8
 # uvicorn==0.34.0
 # python-multipart==0.0.20
 python-dotenv
-numpy==1.25.2
+numpy==2.1.1
