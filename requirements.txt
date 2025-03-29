@@ -1,5 +1,5 @@
 ultralytics
-opencv-python==4.5.5.64rrr
+opencv-python==4.5.5.64
 streamlit==1.42.2
 moviepy==1.0.3
 decorator==4.0.2
