@@ -253,17 +253,17 @@ def main():
 
                     st.success("✅ تمت معالجة الفيديو بنجاح!")
 
-                    with st.spinner("🔄 جاري تحويل تنسيق الفيديو...", show_time=True):
-                        processed_vid_path = os.path.join(model_results_path, f'vid_{i}.mp4')
-                        clip = moviepy.VideoFileClip(file_path)
-                        clip.write_videofile(processed_vid_path)
-                    os.remove(file_path)
-                    
+                    # with st.spinner("🔄 جاري تحويل تنسيق الفيديو...", show_time=True):
+                    #     processed_vid_path = os.path.join(model_results_path, f'vid_{i}.mp4')
+                    #     clip = moviepy.VideoFileClip(file_path)
+                    #     clip.write_videofile(processed_vid_path)
+                    # os.remove(file_path)
+
                     with col2:
                         st.markdown("### النتيجة المعالجة")
-                        st.video(processed_vid_path)
+                        st.video(file_path)
 
-                    download_button_for_vid(processed_vid_path, key = i)
+                    download_button_for_vid(file_path, key = i)
 
 if __name__ == "__main__":
     main()
