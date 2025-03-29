@@ -11,8 +11,10 @@ model_results_path = os.path.join('app_temp', 'results')
 model_input_path = os.path.join('app_temp', 'inputs')
 mkdirs([model_results_path, model_input_path])
 
-
-model = fetch_model()
+@st.cache_resource
+def fetch():
+    return fetch_model()
+model = fetch()
 
 @st.fragment
 def download_button_for_vid(path, key):
