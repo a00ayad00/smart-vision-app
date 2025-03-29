@@ -244,6 +244,7 @@ def main():
                         model.predict(
                             uploaded_videos_path, project='app_temp', name='results', verbose=True, save=True, exist_ok=True
                         )
+                        os.remove(uploaded_videos_path)
 
                         file_path = os.path.join(model_results_path, 'vid.avi')
                         # with open(file_path, 'wb') as f:
@@ -256,7 +257,8 @@ def main():
                         processed_vid_path = os.path.join(model_results_path, f'vid_{i}.mp4')
                         clip = moviepy.VideoFileClip(file_path)
                         clip.write_videofile(processed_vid_path)
-
+                    os.remove(file_path)
+                    
                     with col2:
                         st.markdown("### النتيجة المعالجة")
                         st.video(processed_vid_path)
