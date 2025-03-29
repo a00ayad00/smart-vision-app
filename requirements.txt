@@ -11,3 +11,4 @@ dagshub==0.5.8
 # python-multipart==0.0.20
 python-dotenv==1.1.0
 numpy>=1.23
+distutils
