@@ -1,6 +1,6 @@
 ultralytics==8.3.78
 # opencv-python-headless==4.5.3.56
-opencv-python==4.5.5.64
+# opencv-python==4.5.5.64
 moviepy==1.0.3
 # decorator==4.0.2
 mlflow==2.20.3
