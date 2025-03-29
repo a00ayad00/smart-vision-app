@@ -1,4 +1,4 @@
-ultralytics==8.3.98
+ultralytics
 opencv-python-headless==4.5.3.56
 # streamlit==1.42.2
 moviepy==1.0.3
@@ -12,6 +12,6 @@ uvicorn==0.34.0
 python-multipart==0.0.20
 python-dotenv
 setuptools
-# numpy==1.25.2
-numpy==1.19.3
+# numpy==1.25.2 >=1.23.0
+numpy
 .
