@@ -1,5 +1,5 @@
 ultralytics==8.3.98
-opencv-python-hardless
+opencv-python-headless
 # streamlit==1.42.2
 moviepy==1.0.3
 decorator==4.0.2
