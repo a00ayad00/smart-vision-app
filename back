@@ -1,0 +1,12 @@
+FROM python:3.11-slim-bullseye
+
+WORKDIR /backend
+
+COPY backend /backend
+
+RUN apt-get -y update && pip install --upgrade pip && pip install -r requirements.txt && apt-get -y install libgl1 libglib2.0-0
+# RUN python3 main.py > output.log 2>&1 &
+
+EXPOSE 5000
+
+ENTRYPOINT ["python3", "main.py"]

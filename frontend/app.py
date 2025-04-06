@@ -3,7 +3,7 @@ from PIL import Image
 import os
 import moviepy.editor as moviepy
 from model import fetch_model
-from helper import mkdirs
+from utils import mkdirs
 # import requests
 
 

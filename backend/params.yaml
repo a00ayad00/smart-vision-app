@@ -1,16 +1,16 @@
 train:
-  epochs: 26
+  epochs: 30
   imgsz: 512
-  batch: 16
+  batch: 32
   save_period: -1
   workers: 2
 
 eval:
-  batch: 16
+  batch: 32
   imgsz: 512
 
 register:
-  name: DeformityDetector
+  name: Deformity-Detector-2
   run_id: latest # choose 'latest' to register the model with the latest run id
 
 inference:

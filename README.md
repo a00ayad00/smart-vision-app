@@ -15,12 +15,25 @@ The current classes are: **Potholes**, **Broken Trees**, **Accidents** and **Fir
 - Initialize the DVC: $`dvc init`
 
 # Pipeline Stages
-1) Data Preparation
-2) Train the model on the prepared data
+1) Download the datasets from Roboflow
+2) Train the model on the datasets
 3) Evaluate the trained model
 
-<br>**Note:** This pipeline is fully automated and other stages will be added later.
+<br>**Notes:**
+- This pipeline is fully automated and other stages will be added later.
+- If you encountered this error **_ImportError: libGL.so.1: cannot open shared object file: No such file or directory_** on linux, run $`apt-get update && apt-get install -y libgl1 libglib2.0-0`. If you encountered a **_permission deny_** message, run $`sudo su` first, then exit from the admin terminal using $`exit`
 
 # Run the pipeline (You should use *CMD*)
 - See the DAG (Directed Cyclic Graph): $`dvc dag`
 - Run the pipeline with this command: $`dvc repro`
+
+# Run the app
+### From local
+- First, you have to run the API from _main.py_ file: $`python main.py`
+- Run the streamlit app: $`streamlit run app.py`
+### From Docker
+
+
+
+docker build -t backend -f back .
+docker run -p 5000:5000 backend

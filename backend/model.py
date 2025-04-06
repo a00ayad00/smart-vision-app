@@ -1,11 +1,13 @@
 import mlflow
-from helper import read_yaml, mkdirs
+from utils import read_yaml, mkdirs
 from os.path import join, exists, dirname
+from os import environ
 from ultralytics import YOLO
 from dotenv import load_dotenv
 import dagshub
 
 load_dotenv()
+dagshub.auth.add_app_token(environ["DAGSHUB_USER_TOKEN"])
 dagshub.init(repo_owner='3bdullah3yad', repo_name='SmartVision', mlflow=True)
 
 model_path = join('app_temp', 'model', 'best.pt')

@@ -1,0 +1,15 @@
+artifacts_folder_name: Artifacts
+
+data:
+  dataYaml: datasets/data.yaml
+
+train:
+  name_or_path: yolo12m.pt
+  exp_name: train
+  run_name: run
+  device: cuda
+
+eval:
+  exp_name: val
+  run_name: run
+  device: cuda
