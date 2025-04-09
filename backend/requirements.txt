@@ -1,5 +1,5 @@
 ultralytics==8.3.78
-moviepy==1.0.3
+# moviepy==1.0.3
 mlflow==2.20.3
 python-box==7.3.2
 dagshub==0.5.8

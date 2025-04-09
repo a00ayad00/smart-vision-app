@@ -2,11 +2,10 @@ FROM python:3.11-slim-bullseye
 
 WORKDIR /backend
 
-COPY backend /backend
+COPY backend/requirements.txt .
 
-RUN apt-get -y update && pip install --upgrade pip && pip install -r requirements.txt && apt-get -y install libgl1 libglib2.0-0
-# RUN python3 main.py > output.log 2>&1 &
+RUN apt-get -y update && pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt && apt-get -y install libgl1 libglib2.0-0
 
-EXPOSE 5000
+COPY backend .
 
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT ["uvicorn", "main:app", "--port", "5000", "--host", "0.0.0.0", "--reload", "--reload-dir", "/backend"]

@@ -10,11 +10,11 @@ load_dotenv()
 dagshub.auth.add_app_token(environ["DAGSHUB_USER_TOKEN"])
 dagshub.init(repo_owner='3bdullah3yad', repo_name='SmartVision', mlflow=True)
 
-model_path = join('app_temp', 'model', 'best.pt')
+# model_path = join('app_temp', 'model', 'best.pt')
 
-def fetch_model():
-    if not exists(model_path):
-        mkdirs([model_path])
+def fetch_model(repull=False):
+    if not exists('best.pt') or repull:
+        # mkdirs([model_path])
         params = read_yaml("params.yaml")
         cfg = read_yaml("config.yaml")
         
@@ -29,6 +29,7 @@ def fetch_model():
             df = mlflow.search_runs([experiment_id], order_by=["end_time DESC"])
             run_id = df['run_id'][0]        
 
-        mlflow.artifacts.download_artifacts(f'runs:/{run_id}/weights/best.pt', dst_path = dirname(model_path))
+        # mlflow.artifacts.download_artifacts(f'runs:/{run_id}/weights/best.pt', dst_path = dirname(model_path))
+        mlflow.artifacts.download_artifacts(f'runs:/{run_id}/weights/best.pt', dst_path = dirname('best.pt'))
 
-    return YOLO(model_path)
+    return YOLO('best.pt')

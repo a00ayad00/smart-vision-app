@@ -1,12 +1,11 @@
 FROM python:3.11-slim-bullseye
 
-WORKDIR /app
+WORKDIR /front
 
-COPY app.py /app
+COPY frontend/requirements.txt .
 
-RUN apt-get -y update && pip install --upgrade pip && pip install -r requirements.txt
-RUN python3 main.py > output.log 2>&1 &
+RUN apt-get -y update && pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8501
+COPY frontend .
 
 ENTRYPOINT ["streamlit", "run", "app.py"]

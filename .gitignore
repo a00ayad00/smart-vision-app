@@ -1,13 +1,11 @@
 .env
-*egg*
-build
 *log*
-src/__pycache__
 __pycache__
+frontend/__pycache__
+backend/__pycache__
 mlruns
 *.ipynb
 *temp
 *.mp4
 # .devcontainer
-main.py
-app2.py
+*.jpg
